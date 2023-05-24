@@ -227,8 +227,10 @@ export default function SpotifySDKPage() {
     }, []);
 
     return (
-        <div className="min-h-screen flex items-center flex-col">
+        <div className="min-h-screen flex items-center flex-col w-full">
             <ControlsSection
+                maxInput={maxInput}
+                maxOutput={maxOutput}
                 currentStep={journeyStep}
                 setMaxInput={setMaxInput}
                 setMaxOutput={setMaxOutput}

@@ -125,6 +125,8 @@ export default function RecommenderPage() {
     return (
         <div className="min-h-screen flex items-center flex-col w-full">
             <ControlsSection
+                maxInput={maxInput}
+                maxOutput={maxOutput}
                 currentStep={journeyStep}
                 setMaxInput={setMaxInput}
                 setMaxOutput={setMaxOutput}
@@ -132,6 +134,7 @@ export default function RecommenderPage() {
                 reset={reset}
                 login={loginHandler}
                 onGetRecommendations={() => {
+                    console.log(selectedTrackIds)
                     getRecommendations(
                         selectedTrackIds
                     );

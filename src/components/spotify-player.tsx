@@ -76,8 +76,8 @@ const SpotifyPlayer: FC<SpotifyPlayerProps> = ({ track, onAddToPlaylist }) => {
     }
 
     return (
-        <div className='max-w-screen-2xl fixed bottom-0 left-0 right-0 mx-auto px-2'>
-            <div className="bg-indigo-500 text-white border-t-2 border-white">
+        <div className='container items-center w-full fixed bottom-0 left-0 right-0 mx-auto px-4'>
+            <div className="bg-indigo-500 text-white border-t-2 border-white mx-4">
                 <div className="flex items-center justify-between">
                     <img
                         className="w-20 h-20"

@@ -13,6 +13,8 @@ import SelectedItems from './selected-items';
 type ControlsSectionProps = {
     setMaxInput: (n: number) => void;
     setMaxOutput: (n: number) => void;
+    maxInput: number;
+    maxOutput: number;
     getTopTracks: () => void;
     reset: () => void;
     login: () => void;
@@ -26,6 +28,8 @@ type ControlsSectionProps = {
 const ControlsSection: FC<ControlsSectionProps> = ({
     setMaxInput,
     setMaxOutput,
+    maxInput,
+    maxOutput,
     getTopTracks,
     reset,
     onGetRecommendations,
@@ -96,12 +100,12 @@ const ControlsSection: FC<ControlsSectionProps> = ({
                 {currentStep === JourneySteps.Start && (
                     <div className='w-full'>
                         <div className='mt-2'>
-                            <Label htmlFor="max-inputs">Max Inputs for recommendations (1-20):</Label>
-                            <Input min={1} max={20} type="number" id="max-inputs" placeholder="Max inputs for recommendations" onChange={(e) => setMaxInput(parseInt(e.target.value))} />
+                            <Label htmlFor="max-inputs">Max Inputs for recommendations (1-50):</Label>
+                            <Input min={1} max={50}  type="number" id="max-inputs" placeholder="Max inputs for recommendations" defaultValue={maxInput} onChange={(e) => setMaxInput(parseInt(e.target.value))} />
                         </div>
                         <div className='mt-2'>
                             <Label htmlFor="max-outputs">Max Outputs for recommendations (1-100):</Label>
-                            <Input min={1} max={100} type="number" id="max-outputs" placeholder="Max outputs for recommendations" onChange={(e) => setMaxOutput(parseInt(e.target.value))} />
+                            <Input min={1} max={100} type="number" id="max-outputs" placeholder="Max outputs for recommendations" defaultValue={maxOutput} onChange={(e) => setMaxOutput(parseInt(e.target.value))} />
                         </div>
                     </div>
                 )}

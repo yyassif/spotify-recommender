@@ -200,6 +200,7 @@ export const getTrackItemsByIds = async (limit: number): Promise<{ items: Array<
 
 export const getModelTrackRecommendations = async (trackIds: Array<string>, maxOutput: number): Promise<Array<Track>> => {
     const input_tracks = trackIds.join(',');
+    console.log('input_tracks', input_tracks);
     const response = await fastapi.post('/recommender', { song_ids: input_tracks, n_songs: maxOutput }, POST_CONFIG);
     const seed_tracks = response.data['ids'];
     const data = await getData(`https://api.spotify.com/v1/tracks?ids=${seed_tracks}`);

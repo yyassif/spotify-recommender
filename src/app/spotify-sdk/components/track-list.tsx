@@ -20,7 +20,7 @@ const TrackList: FC<TrackListProps> = ({
     onStop,
     currentPreviewTrack,
 }) => (
-    <div className="grid grid-cols-1 auto-rows-fr space-y-4 px-2 w-full max-w-screen-2xl md:space-y-0 md:auto-rows-fr md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-2 lg:gap-4 xl:grid-cols-4">
+    <div className="grid grid-cols-1 auto-rows-fr space-y-4 px-2 md:px-0 w-full max-w-screen-2xl md:space-y-0 md:auto-rows-fr md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-2 xl:grid-cols-4">
         {tracks.map((track) => (
             <div
                 key={track.id}

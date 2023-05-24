@@ -4,7 +4,7 @@ import { siteConfig } from "~/config/site";
 
 export default function AboutPage() {
   return (
-    <>
+    <div className="w-full pt-4">
       <div className="flex w-full flex-col items-start gap-2">
         <h1 className="text-3xl font-extrabold sm:text-3xl md:text-5xl lg:text-6xl">
           About The Project
@@ -17,16 +17,18 @@ export default function AboutPage() {
           Then it Uses the Spotify SDK WebAPI 
         </p>
       </div>
-      <div className="flex gap-4">
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.github}
-          className={buttonVariants({ variant: "outline", size: "lg" })}
-        >
-          GitHub
-        </Link>
+      <div className="mt-4">
+        <div className="flex gap-4">
+          <Link
+            target="_blank"
+            rel="noreferrer"
+            href={siteConfig.links.github}
+            className={buttonVariants({ variant: "outline", size: "lg" })}
+          >
+            GitHub
+          </Link>
+        </div>
       </div>
-    </>
+    </div>
   )
 }

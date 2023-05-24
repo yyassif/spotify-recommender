@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import ProgressiveImage from '~/components/progressive-image';
 import { getAlbumImage } from '~/lib/image';
 import { SpotifyImageSizes, Track } from '~/lib/spotify';
@@ -17,7 +17,6 @@ type TrackTileProps = {
 };
 
 const TrackTile: FC<TrackTileProps> = ({ track, onTrackClick, selected, mode }) => {
-    const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
     return (
         <div

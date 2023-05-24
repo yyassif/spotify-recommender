@@ -37,7 +37,7 @@ const TrackGrid: FC<TrackGridProps> = ({ tracks, onTrackClick, selection, mode }
                 }
             />
         ))}
-        {!tracks && "Nothing to show"}
+        {!tracks && <p>Nothing to show</p>}
     </div>
 );
 

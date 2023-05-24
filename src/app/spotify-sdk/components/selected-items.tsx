@@ -39,7 +39,7 @@ const SelectedItems: FC<SelectedItemsProps> = ({
                                 track.album,
                                 SpotifyImageSizes.Thumbnail
                             )}
-                            className="w-10 h-10 aspect-square rounded-sm"
+                            className="min-w-min w-10 h-10 aspect-square rounded-sm"
                             alt={track?.name}
                         />
                     </div>
@@ -103,16 +103,18 @@ const SelectedItems: FC<SelectedItemsProps> = ({
                 </div>
             );
         })}
-        <Button
-            onClick={onGetRecommendations}
-            disabled={
-                selectedTracks.length === 0 &&
-                selectedArtists.length === 0 &&
-                selectedGenres.length === 0
-            }
-        >
-            Get Recommendatons
-        </Button>
+        <div className='w-full flex items-center py-2'>
+            <Button className='py-2 w-full h-full'
+                onClick={onGetRecommendations}
+                disabled={
+                    selectedTracks.length === 0 &&
+                    selectedArtists.length === 0 &&
+                    selectedGenres.length === 0
+                }
+            >
+                Get Recommendatons
+            </Button>
+        </div>
     </div>
 );
 

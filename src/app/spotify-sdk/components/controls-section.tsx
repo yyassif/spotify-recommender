@@ -21,6 +21,8 @@ import SelectedItems from './selected-items';
 type ControlsSectionProps = {
     timeRange: TimeRange;
     setTimeRange: (timeRange: TimeRange) => void;
+    maxInput: number;
+    maxOutput: number;
     setMaxInput: (n: number) => void;
     setMaxOutput: (n: number) => void;
     getTopTracks: () => void;
@@ -42,7 +44,9 @@ type ControlsSectionProps = {
 const ControlsSection: FC<ControlsSectionProps> = ({
     setTimeRange,
     setMaxInput,
+    maxInput,
     setMaxOutput,
+    maxOutput,
     timeRange,
     getTopTracks,
     getTopArtists,
@@ -93,7 +97,7 @@ const ControlsSection: FC<ControlsSectionProps> = ({
         <div
             ref={containerRef}
             className={clsx(
-                'max-w-screen-2xl flex w-full flex-col md:justify-center items-center py-4 space-y-2 md:space-y-1 md:space-x-2',
+                'max-w-screen-2xl flex w-full flex-col py-1 space-y-2 md:space-y-1 md:space-x-2',
                 {
                     'py-6 h-[90vh] justify-between md:justify-between':
                         isStepBeforeChoosing(currentStep),
@@ -109,7 +113,7 @@ const ControlsSection: FC<ControlsSectionProps> = ({
                 {isStepBeforeChoosing(currentStep) && (
                     <div>
                         <h3 className="text-3xl font-extrabold sm:text-3xl md:text-5xl lg:text-6xl">Spotify SDK Recommendation</h3>
-                        <div className="text-lg text-muted-foreground sm:text-xl text-center mt-4">
+                        <div className="text-lg text-muted-foreground sm:text-xl mt-4">
                             Get some recommendatons based on your past musicial
                             habits. Select you desired time range and select up to 5
                             of your past artists or tracks. Add songs you like to
@@ -135,11 +139,11 @@ const ControlsSection: FC<ControlsSectionProps> = ({
                         </Select>
                         <div className='mt-2'>
                             <Label htmlFor="max-inputs">Max Inputs for recommendations :</Label>
-                            <Input type="number" id="max-inputs" placeholder="Max inputs for recommendations" onChange={(e) => setMaxInput(parseInt(e.target.value))} />
+                            <Input type="number" id="max-inputs" placeholder="Max inputs for recommendations" defaultValue={maxInput} onChange={(e) => setMaxInput(parseInt(e.target.value))} />
                         </div>
                         <div className='mt-2'>
                             <Label htmlFor="max-outputs">Max Outputs for recommendations :</Label>
-                            <Input type="number" id="max-outputs" placeholder="Max outputs for recommendations" onChange={(e) => setMaxOutput(parseInt(e.target.value))} />
+                            <Input type="number" id="max-outputs" placeholder="Max outputs for recommendations" defaultValue={maxOutput} onChange={(e) => setMaxOutput(parseInt(e.target.value))} />
                         </div>
                         
                     </div>
@@ -172,6 +176,7 @@ const ControlsSection: FC<ControlsSectionProps> = ({
                             </Button>
                         </>
                     )}
+                    <div className='w-full grid auto-rows-fr grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 py-2 items-center'>
                     {currentStep === JourneySteps.ChooseTracks && (
                         <>
                             <Button onClick={() => reset()}>Restart</Button>
@@ -192,18 +197,18 @@ const ControlsSection: FC<ControlsSectionProps> = ({
                             <Button onClick={() => getTopGenres()}>Choose your genres</Button>
                             <Button onClick={() => getTopTracks()}>Choose your tracks</Button>
                         </>
-                    )}
-
+                        )}
                     {currentStep === JourneySteps.ShowRecommendations && (
                         <Button onClick={() => reset()}>
                             Get New Recommendations
                         </Button>
                     )}
+                    </div>
                 </div>
             </div>
             
             {showSelectedItems && (
-            <div className="relative w-full pt-2">
+            <div className="relative w-full">
                 <SelectedItems
                     selectedTracks={selectedTracks}
                     selectedArtists={selectedArtists}

@@ -28,6 +28,6 @@ export const siteConfig = {
   ],
   links: {
     twitter: "https://twitter.com/yyassif",
-    github: "https://github.com/yyassif",
+    github: "https://github.com/yyassif/spotify-recommender",
   },
 }
